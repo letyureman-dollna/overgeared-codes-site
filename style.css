@@ -1,75 +1,207 @@
-/* Overgeared Codes Hub — Roblox fan guide site */
+/* ============================================================
+   Overgeared Codes Hub — Dark Fantasy RPG theme
+   黑曜石 / 鎏金 / 宝石蓝 / 余烬橙 · 统一游戏画风
+   ============================================================ */
 :root {
-  --bg: #0f1115;
-  --bg-card: #171a21;
-  --bg-card-2: #1e222c;
-  --border: #2a2f3c;
-  --text: #e8eaf0;
-  --text-dim: #9aa3b5;
-  --accent: #f5b942;
-  --accent-2: #6ea8fe;
-  --ok: #4ade80;
-  --bad: #f87171;
+  --bg-0: #0a0c11;
+  --bg-1: #0e1219;
+  --panel: #141926;
+  --panel-2: #1a2130;
+  --steel: #2d3850;
+  --steel-hi: #3d4b6a;
+  --gold: #e8b54a;
+  --gold-hi: #ffd97e;
+  --gold-deep: #a97a1e;
+  --ember: #ff6a3d;
+  --gem: #58b7ff;
+  --ink: #ece5d3;
+  --ink-dim: #a4a99e;
+  --ok: #57d98a;
+  --bad: #f07a6a;
+  --font-display: "Cinzel", "Songti SC", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  background: var(--bg); color: var(--text); line-height: 1.7;
+  font-family: var(--font-body);
+  color: var(--ink);
+  line-height: 1.75;
+  background:
+    radial-gradient(1100px 480px at 50% -140px, rgba(232,181,74,.10), transparent 62%),
+    radial-gradient(900px 420px at 88% -120px, rgba(255,106,61,.05), transparent 60%),
+    linear-gradient(180deg, var(--bg-1), var(--bg-0) 44%);
+  background-color: var(--bg-0);
+  min-height: 100vh;
 }
-a { color: var(--accent-2); text-decoration: none; }
-a:hover { text-decoration: underline; }
 
-/* header */
-.site-header { background: var(--bg-card); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10; }
-.header-inner { max-width: 980px; margin: 0 auto; padding: 14px 20px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
-.brand { font-weight: 800; font-size: 18px; color: var(--accent); letter-spacing: .3px; }
-.brand span { color: var(--text); }
-.nav { display: flex; gap: 18px; flex-wrap: wrap; font-size: 14px; }
-.nav a { color: var(--text-dim); }
-.nav a:hover { color: var(--text); }
+::selection { background: rgba(232,181,74,.30); }
+a { color: var(--gem); text-decoration: none; }
+a:hover { color: var(--gold-hi); }
 
-/* layout */
-main { max-width: 980px; margin: 0 auto; padding: 32px 20px 64px; }
-.breadcrumb { font-size: 13px; color: var(--text-dim); margin-bottom: 18px; }
-h1 { font-size: 34px; line-height: 1.25; margin-bottom: 12px; }
-h2 { font-size: 24px; margin: 36px 0 12px; padding-top: 12px; border-top: 1px solid var(--border); }
-h3 { font-size: 18px; margin: 22px 0 8px; color: var(--accent-2); }
-p { margin-bottom: 14px; color: var(--text); }
+/* ---------- 顶栏 ---------- */
+.site-header {
+  background: linear-gradient(180deg, #121826, #0d111b);
+  border-bottom: 1px solid var(--steel);
+  box-shadow: 0 1px 0 rgba(255,255,255,.04) inset, 0 6px 24px rgba(0,0,0,.45);
+  position: sticky; top: 0; z-index: 10;
+}
+.header-inner { max-width: 1000px; margin: 0 auto; padding: 13px 20px; display: flex; align-items: center; gap: 26px; flex-wrap: wrap; }
+.brand {
+  font-family: var(--font-display);
+  font-weight: 900; font-size: 19px; letter-spacing: .06em;
+  color: var(--gold);
+  text-shadow: 0 0 18px rgba(232,181,74,.35);
+  display: flex; align-items: center; gap: 9px;
+}
+.brand::before { content: "⚔"; font-size: 17px; filter: drop-shadow(0 0 6px rgba(232,181,74,.5)); }
+.brand span { color: var(--ink); }
+.brand:hover { color: var(--gold-hi); text-decoration: none; }
+.nav { display: flex; gap: 4px; flex-wrap: wrap; font-size: 13.5px; }
+.nav a {
+  color: var(--ink-dim); padding: 5px 11px; border-radius: 4px;
+  border: 1px solid transparent; letter-spacing: .02em;
+}
+.nav a:hover {
+  color: var(--gold-hi); border-color: var(--steel);
+  background: rgba(232,181,74,.06); text-decoration: none;
+}
+
+/* ---------- 版心 ---------- */
+main { max-width: 1000px; margin: 0 auto; padding: 34px 20px 70px; }
+.breadcrumb { font-size: 12.5px; color: var(--ink-dim); margin-bottom: 20px; letter-spacing: .04em; }
+
+h1 {
+  font-family: var(--font-display);
+  font-weight: 800; font-size: clamp(26px, 4.6vw, 38px);
+  line-height: 1.22; margin-bottom: 12px; color: var(--ink);
+  text-shadow: 0 2px 24px rgba(0,0,0,.6);
+}
+h2 {
+  font-family: var(--font-display);
+  font-weight: 700; font-size: 21px; letter-spacing: .04em;
+  margin: 40px 0 14px; padding-top: 16px;
+  border-top: 1px solid var(--steel);
+  position: relative;
+}
+h2::before {
+  content: "◆"; color: var(--gold); font-size: 11px; vertical-align: 3px;
+  margin-right: 10px; text-shadow: 0 0 10px rgba(232,181,74,.6);
+}
+h3 { font-size: 16.5px; margin: 24px 0 8px; color: var(--gem); font-weight: 700; letter-spacing: .02em; }
+p { margin-bottom: 14px; }
 ul, ol { margin: 0 0 16px 22px; }
 li { margin-bottom: 6px; }
-.meta-line { color: var(--text-dim); font-size: 14px; margin-bottom: 24px; }
+.meta-line {
+  color: var(--ink-dim); font-size: 13.5px; margin-bottom: 26px;
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+}
 
-/* cards & tables */
-.card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 22px; margin-bottom: 18px; }
+/* ---------- RPG 面板卡片 ---------- */
+.card {
+  position: relative;
+  background: linear-gradient(180deg, var(--panel-2), var(--panel) 58%);
+  border: 1px solid var(--steel);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.05) inset,
+    0 10px 30px rgba(0,0,0,.35);
+}
+/* 面板四角鎏金包角 */
+.card::before, .card::after {
+  content: ""; position: absolute; width: 14px; height: 14px;
+  border: 2px solid var(--gold-deep); opacity: .85;
+}
+.card::before { top: -1px; left: -1px; border-right: none; border-bottom: none; border-radius: 8px 0 0 0; }
+.card::after  { bottom: -1px; right: -1px; border-left: none; border-top: none; border-radius: 0 0 8px 0; }
 .card h2:first-child, .card h3:first-child { margin-top: 0; border-top: none; padding-top: 0; }
-table { width: 100%; border-collapse: collapse; font-size: 15px; margin: 10px 0 18px; }
-th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
-th { color: var(--text-dim); font-size: 13px; text-transform: uppercase; letter-spacing: .5px; }
-.code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--bg-card-2); border: 1px dashed var(--accent); color: var(--accent); padding: 3px 10px; border-radius: 6px; font-weight: 700; }
-.status-active { color: var(--ok); font-weight: 700; }
-.status-beta { color: var(--accent); font-weight: 700; }
-.callout { background: #1a2030; border-left: 4px solid var(--accent-2); padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 15px; }
-.warn { border-left-color: var(--bad); background: #241a1e; }
-.tier-s { color: #f5b942; font-weight: 800; }
-.tier-a { color: #6ea8fe; font-weight: 800; }
-.tier-b { color: #9aa3b5; font-weight: 800; }
-.tag { display: inline-block; background: var(--bg-card-2); border: 1px solid var(--border); color: var(--text-dim); border-radius: 20px; padding: 2px 12px; font-size: 12.5px; margin: 0 6px 8px 0; }
 
-/* hub grid */
-.hub-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 16px; margin-top: 8px; }
-.hub-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; transition: border-color .15s; }
-.hub-card:hover { border-color: var(--accent); }
-.hub-card h3 { margin: 0 0 6px; color: var(--text); font-size: 16px; }
-.hub-card p { font-size: 14px; color: var(--text-dim); margin: 0; }
+/* ---------- 表格：装备清单 ---------- */
+table {
+  width: 100%; border-collapse: collapse; font-size: 14.5px;
+  margin: 12px 0 18px; border: 1px solid var(--steel); border-radius: 6px;
+  overflow: hidden;
+}
+th {
+  background: linear-gradient(180deg, #1c2434, #161c2a);
+  color: var(--gold); font-size: 11.5px; text-transform: uppercase;
+  letter-spacing: .12em; text-align: left; padding: 11px 14px;
+  border-bottom: 1px solid var(--steel);
+}
+td { padding: 11px 14px; border-bottom: 1px solid rgba(45,56,80,.55); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+tbody tr:hover td { background: rgba(232,181,74,.045); }
 
-/* footer */
-.site-footer { border-top: 1px solid var(--border); background: var(--bg-card); margin-top: 40px; }
-.footer-inner { max-width: 980px; margin: 0 auto; padding: 28px 20px; font-size: 13.5px; color: var(--text-dim); }
-.footer-inner a { color: var(--text-dim); }
-.footer-inner nav { margin-bottom: 10px; display: flex; gap: 16px; flex-wrap: wrap; }
+/* ---------- 兑换码：金装物品 ---------- */
+.code {
+  font-family: var(--font-mono); font-weight: 700; font-size: 13.5px;
+  color: var(--gold-hi); background: linear-gradient(180deg, #2a2413, #1d190d);
+  border: 1px solid var(--gold-deep);
+  padding: 3px 10px; border-radius: 4px; white-space: nowrap;
+  text-shadow: 0 0 8px rgba(255,217,126,.35);
+  box-shadow: 0 0 0 1px rgba(0,0,0,.5), 0 1px 0 rgba(255,217,126,.15) inset;
+}
+.status-active { color: var(--ok); font-weight: 700; font-size: 13px; letter-spacing: .04em; }
+.status-active::before { content: "●"; font-size: 9px; margin-right: 6px; text-shadow: 0 0 8px var(--ok); }
+.status-beta { color: var(--gold); font-weight: 700; font-size: 13px; letter-spacing: .04em; }
+.status-beta::before { content: "◐"; font-size: 11px; margin-right: 6px; }
 
-@media (max-width: 640px) {
-  h1 { font-size: 26px; }
-  .header-inner { gap: 12px; }
+/* ---------- 任务面板 / 提示 ---------- */
+.callout {
+  background: linear-gradient(180deg, #1a2233, #151c2b);
+  border: 1px solid var(--steel); border-left: 3px solid var(--gem);
+  padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 18px 0; font-size: 14.5px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.3);
+}
+.warn { border-left-color: var(--bad); background: linear-gradient(180deg, #2a1c20, #1e1518); }
+
+/* ---------- 稀有度徽章 ---------- */
+.tier-s, .tier-a, .tier-b {
+  display: inline-block; font-family: var(--font-display); font-weight: 800;
+  font-size: 13px; padding: 1px 12px; border-radius: 3px; letter-spacing: .1em;
+}
+.tier-s { color: #1a1206; background: linear-gradient(180deg, var(--gold-hi), var(--gold)); box-shadow: 0 0 14px rgba(232,181,74,.45); }
+.tier-a { color: #0b1622; background: linear-gradient(180deg, #8ed0ff, var(--gem)); box-shadow: 0 0 12px rgba(88,183,255,.35); }
+.tier-b { color: var(--ink); background: linear-gradient(180deg, var(--steel-hi), var(--steel)); }
+
+.tag {
+  display: inline-block; background: var(--panel-2); border: 1px solid var(--steel);
+  color: var(--ink-dim); border-radius: 20px; padding: 2px 12px; font-size: 12px;
+  margin: 0 6px 8px 0;
+}
+
+/* ---------- Hub 格子：物品槽 ---------- */
+.hub-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(272px, 1fr)); gap: 16px; margin-top: 10px; }
+.hub-card {
+  background: linear-gradient(180deg, var(--panel-2), var(--panel));
+  border: 1px solid var(--steel); border-radius: 8px; padding: 20px 20px 18px;
+  transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease;
+}
+.hub-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold-deep);
+  box-shadow: 0 0 0 1px rgba(232,181,74,.25), 0 14px 30px rgba(0,0,0,.5);
+  text-decoration: none;
+}
+.hub-card h3 { margin: 0 0 6px; color: var(--ink); font-size: 15.5px; font-family: var(--font-display); letter-spacing: .03em; }
+.hub-card p { font-size: 13.5px; color: var(--ink-dim); margin: 0; line-height: 1.6; }
+
+/* ---------- 页脚 ---------- */
+.site-footer { border-top: 1px solid var(--steel); background: linear-gradient(180deg, #0c101a, #090b10); margin-top: 48px; }
+.footer-inner { max-width: 1000px; margin: 0 auto; padding: 30px 20px; font-size: 13px; color: var(--ink-dim); }
+.footer-inner nav { margin-bottom: 12px; display: flex; gap: 16px; flex-wrap: wrap; }
+.footer-inner a { color: var(--ink-dim); }
+.footer-inner a:hover { color: var(--gold); }
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 700px) {
+  h1 { font-size: 25px; }
+  .header-inner { gap: 10px; }
+  .card { padding: 18px; }
+  table { display: block; overflow-x: auto; white-space: nowrap; }
+  td, th { padding: 9px 12px; }
 }
