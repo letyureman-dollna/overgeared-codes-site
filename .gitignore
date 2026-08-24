@@ -1,3 +1,7 @@
 .vercel
 screenshots
 .DS_Store
+
+# 替换测试产物
+test-dist/
+test-dist.config.jsonc

@@ -1,0 +1,80 @@
+{
+  // ═══════════════════════════════════════════════════════════
+  // 站点配置（配置层）—— 换游戏建新站时只改这个文件 + src/pages/ 内容
+  // 框架层 build.mjs / style.css 不含任何游戏信息，不用动
+  // ═══════════════════════════════════════════════════════════
+
+  "game": {
+    "short": "Overgeared",            // 短名，正文/标题常用（{{game}}）
+    "full": "Overgeared [BETA]",      // 全名，含状态后缀（{{gameFull}}）
+    "platform": "Roblox",             // {{platform}}
+    "developer": "Overgeared Studios" // {{developer}}
+  },
+
+  "site": {
+    "domain": "overgeared-site.vercel.app",  // canonical / sitemap / robots 都由它生成
+    "lang": "en"
+  },
+
+  // 顶栏品牌（红木/黄铜主题的站名）
+  "brand": {
+    "name": "{{game}}",
+    "suffix": "Codes"
+  },
+
+  // 主题色 → 生成 theme.css，覆盖 style.css 的 :root 默认值
+  // 换配色只改这里的色值，style.css 不动
+  "theme": {
+    "vars": {
+      "bg": "#1C1714",
+      "bg-alt": "#251E19",
+      "panel": "#2a221c",
+      "panel-2": "#322921",
+      "fg": "#E8DFD4",
+      "muted": "#3D332B",
+      "muted-fg": "#9C8B7A",
+      "border": "#4A3F35",
+      "brass": "#C9A962",
+      "brass-hi": "#E8CF96",
+      "brass-deep": "#8a6f38",
+      "crimson": "#8B2635",
+      "gem": "#7FB4C9",
+      "ok": "#8FBF7F",
+      "bad": "#C46A5A"
+      // 字体变量用 style.css 默认值；要换字体在这里加 --font-heading 等
+    }
+    // "googleFonts": "https://fonts.googleapis.com/css2?..."  // 换字体时设置
+  },
+
+  // 导航：只写 slug，顺序即显示顺序；标签来自各页面文件的 navLabel
+  // 页面增删 → 改这里即可，导航/hub/sitemap 自动更新
+  "nav": {
+    "header": ["index", "wiki", "tier-list", "best-swords", "leveling-guide", "bosses"],
+    "footer": ["index", "wiki", "tier-list", "leveling-guide", "gold-guide", "gems-guide", "bosses", "ember-stones"]
+  },
+
+  // 官方链接（页脚 Official 一行）；留空数组则不渲染。URL 必须是验证过的官方地址
+  "officialLinks": [
+    {
+      "label": "Play {{gameFull}} on {{platform}}",
+      "url": "https://www.roblox.com/games/110225666966515/Overgeared"
+    }
+  ],
+
+  // SEO 全局项；每页 title/description 在 src/pages/*.mjs 里
+  "seo": {
+    // "ogImage": "https://<域名>/og-cover.png"   // 有封面图时再开
+  },
+
+  // Google Analytics；留空或删掉则全部页面不渲染 gtag
+  "analytics": {
+    "gaId": "G-T7TDFSM8E6"
+  },
+
+  // 页脚免责声明
+  "footer": {
+    "disclaimer": "Fan-made guide site for {{gameFull}} on {{platform}}. Not affiliated with {{developer}} or Roblox Corporation."
+  }
+
+  // 注意：GSC 验证文件 google*.html 放在网站根目录、不归构建管，别删
+}
