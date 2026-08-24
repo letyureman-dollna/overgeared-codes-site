@@ -1,207 +1,339 @@
-/* ============================================================
-   Overgeared Codes Hub — Dark Fantasy RPG theme
-   黑曜石 / 鎏金 / 宝石蓝 / 余烬橙 · 统一游戏画风
-   ============================================================ */
+/* ═══════════════════════════════════════════════════════════
+   OVERGEARED CODES · The Adventurer's Codex
+   西方奇幻古卷主题 — 红木 / 橡木 / 羊皮纸 / 黄铜 / 火漆
+   ═══════════════════════════════════════════════════════════ */
 :root {
-  --bg-0: #0a0c11;
-  --bg-1: #0e1219;
-  --panel: #141926;
-  --panel-2: #1a2130;
-  --steel: #2d3850;
-  --steel-hi: #3d4b6a;
-  --gold: #e8b54a;
-  --gold-hi: #ffd97e;
-  --gold-deep: #a97a1e;
-  --ember: #ff6a3d;
-  --gem: #58b7ff;
-  --ink: #ece5d3;
-  --ink-dim: #a4a99e;
-  --ok: #57d98a;
-  --bad: #f07a6a;
-  --font-display: "Cinzel", "Songti SC", serif;
-  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --bg: #1C1714;            /* mahogany 红木 */
+  --bg-alt: #251E19;        /* oak 橡木 */
+  --panel: #2a221c;
+  --panel-2: #322921;
+  --fg: #E8DFD4;            /* parchment 羊皮纸 */
+  --muted: #3D332B;
+  --muted-fg: #9C8B7A;
+  --border: #4A3F35;
+  --brass: #C9A962;         /* 黄铜 */
+  --brass-hi: #E8CF96;
+  --brass-deep: #8a6f38;
+  --crimson: #8B2635;       /* 火漆红 */
+  --gem: #7FB4C9;
+  --ok: #8FBF7F;
+  --bad: #C46A5A;
+  --font-heading: "Cormorant Garamond", "Songti SC", serif;
+  --font-body: "Crimson Pro", "Songti SC", Georgia, serif;
+  --font-label: "Cinzel", "Songti SC", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-body);
-  color: var(--ink);
-  line-height: 1.75;
+  font-size: 17.5px;
+  color: var(--fg);
+  line-height: 1.8;
   background:
-    radial-gradient(1100px 480px at 50% -140px, rgba(232,181,74,.10), transparent 62%),
-    radial-gradient(900px 420px at 88% -120px, rgba(255,106,61,.05), transparent 60%),
-    linear-gradient(180deg, var(--bg-1), var(--bg-0) 44%);
-  background-color: var(--bg-0);
+    radial-gradient(1200px 500px at 50% -160px, rgba(201,169,98,.13), transparent 65%),
+    radial-gradient(900px 500px at 100% 0, rgba(139,38,53,.07), transparent 55%),
+    var(--bg);
   min-height: 100vh;
 }
+/* 古卷暗角 vignette */
+body::after {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 99;
+  background: radial-gradient(120% 90% at 50% 40%, transparent 60%, rgba(0,0,0,.42) 100%);
+}
+::selection { background: rgba(201,169,98,.35); }
 
-::selection { background: rgba(232,181,74,.30); }
 a { color: var(--gem); text-decoration: none; }
-a:hover { color: var(--gold-hi); }
+a:hover { color: var(--brass-hi); }
+a:focus-visible, .btn:focus-visible, .nav a:focus-visible {
+  outline: 2px solid var(--brass); outline-offset: 3px; border-radius: 4px;
+}
 
-/* ---------- 顶栏 ---------- */
+/* ─────────── 顶栏 ─────────── */
 .site-header {
-  background: linear-gradient(180deg, #121826, #0d111b);
-  border-bottom: 1px solid var(--steel);
-  box-shadow: 0 1px 0 rgba(255,255,255,.04) inset, 0 6px 24px rgba(0,0,0,.45);
-  position: sticky; top: 0; z-index: 10;
+  background: linear-gradient(180deg, #241d17, #1a1410);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 0 rgba(232,207,150,.07) inset, 0 8px 26px rgba(0,0,0,.5);
+  position: sticky; top: 0; z-index: 20;
 }
-.header-inner { max-width: 1000px; margin: 0 auto; padding: 13px 20px; display: flex; align-items: center; gap: 26px; flex-wrap: wrap; }
+.header-inner { max-width: 1040px; margin: 0 auto; padding: 14px 22px; display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
 .brand {
-  font-family: var(--font-display);
-  font-weight: 900; font-size: 19px; letter-spacing: .06em;
-  color: var(--gold);
-  text-shadow: 0 0 18px rgba(232,181,74,.35);
-  display: flex; align-items: center; gap: 9px;
+  font-family: var(--font-label); font-weight: 900; font-size: 18px;
+  letter-spacing: .08em; color: var(--brass);
+  text-shadow: 0 1px 0 #000, 0 0 22px rgba(201,169,98,.3);
+  display: flex; align-items: center; gap: 10px;
 }
-.brand::before { content: "⚔"; font-size: 17px; filter: drop-shadow(0 0 6px rgba(232,181,74,.5)); }
-.brand span { color: var(--ink); }
-.brand:hover { color: var(--gold-hi); text-decoration: none; }
-.nav { display: flex; gap: 4px; flex-wrap: wrap; font-size: 13.5px; }
-.nav a {
-  color: var(--ink-dim); padding: 5px 11px; border-radius: 4px;
-  border: 1px solid transparent; letter-spacing: .02em;
-}
-.nav a:hover {
-  color: var(--gold-hi); border-color: var(--steel);
-  background: rgba(232,181,74,.06); text-decoration: none;
-}
+.brand::before { content: "⚔"; font-size: 16px; filter: drop-shadow(0 0 6px rgba(201,169,98,.6)); }
+.brand span { color: var(--fg); }
+.brand:hover { color: var(--brass-hi); }
+.nav { display: flex; gap: 4px; flex-wrap: wrap; font-family: var(--font-label); font-size: 12px; letter-spacing: .1em; }
+.nav a { color: var(--muted-fg); padding: 6px 13px; border: 1px solid transparent; border-radius: 3px; text-transform: uppercase; }
+.nav a:hover { color: var(--brass-hi); border-color: var(--border); background: rgba(201,169,98,.07); }
 
-/* ---------- 版心 ---------- */
-main { max-width: 1000px; margin: 0 auto; padding: 34px 20px 70px; }
-.breadcrumb { font-size: 12.5px; color: var(--ink-dim); margin-bottom: 20px; letter-spacing: .04em; }
-
-h1 {
-  font-family: var(--font-display);
-  font-weight: 800; font-size: clamp(26px, 4.6vw, 38px);
-  line-height: 1.22; margin-bottom: 12px; color: var(--ink);
-  text-shadow: 0 2px 24px rgba(0,0,0,.6);
+/* ─────────── HERO 拱顶大屏 ─────────── */
+.hero {
+  margin: 34px auto 10px;
+  max-width: 1040px; padding: 0 22px;
 }
-h2 {
-  font-family: var(--font-display);
-  font-weight: 700; font-size: 21px; letter-spacing: .04em;
-  margin: 40px 0 14px; padding-top: 16px;
-  border-top: 1px solid var(--steel);
+.hero-inner {
   position: relative;
-}
-h2::before {
-  content: "◆"; color: var(--gold); font-size: 11px; vertical-align: 3px;
-  margin-right: 10px; text-shadow: 0 0 10px rgba(232,181,74,.6);
-}
-h3 { font-size: 16.5px; margin: 24px 0 8px; color: var(--gem); font-weight: 700; letter-spacing: .02em; }
-p { margin-bottom: 14px; }
-ul, ol { margin: 0 0 16px 22px; }
-li { margin-bottom: 6px; }
-.meta-line {
-  color: var(--ink-dim); font-size: 13.5px; margin-bottom: 26px;
-  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
-}
-
-/* ---------- RPG 面板卡片 ---------- */
-.card {
-  position: relative;
-  background: linear-gradient(180deg, var(--panel-2), var(--panel) 58%);
-  border: 1px solid var(--steel);
-  border-radius: 8px;
-  padding: 24px;
-  margin-bottom: 20px;
+  text-align: center;
+  padding: 66px 30px 54px;
+  border: 1px solid var(--brass-deep);
+  border-radius: 160px 160px 10px 10px;      /* 拱门顶 */
+  background:
+    radial-gradient(85% 70% at 50% 0%, rgba(201,169,98,.14), transparent 60%),
+    radial-gradient(60% 55% at 50% 100%, rgba(139,38,53,.10), transparent 65%),
+    linear-gradient(180deg, #2d241d, #221b15);
   box-shadow:
-    0 1px 0 rgba(255,255,255,.05) inset,
-    0 10px 30px rgba(0,0,0,.35);
-}
-/* 面板四角鎏金包角 */
-.card::before, .card::after {
-  content: ""; position: absolute; width: 14px; height: 14px;
-  border: 2px solid var(--gold-deep); opacity: .85;
-}
-.card::before { top: -1px; left: -1px; border-right: none; border-bottom: none; border-radius: 8px 0 0 0; }
-.card::after  { bottom: -1px; right: -1px; border-left: none; border-top: none; border-radius: 0 0 8px 0; }
-.card h2:first-child, .card h3:first-child { margin-top: 0; border-top: none; padding-top: 0; }
-
-/* ---------- 表格：装备清单 ---------- */
-table {
-  width: 100%; border-collapse: collapse; font-size: 14.5px;
-  margin: 12px 0 18px; border: 1px solid var(--steel); border-radius: 6px;
+    0 1px 0 rgba(232,207,150,.10) inset,
+    0 24px 60px rgba(0,0,0,.55);
   overflow: hidden;
 }
-th {
-  background: linear-gradient(180deg, #1c2434, #161c2a);
-  color: var(--gold); font-size: 11.5px; text-transform: uppercase;
-  letter-spacing: .12em; text-align: left; padding: 11px 14px;
-  border-bottom: 1px solid var(--steel);
+/* 拱顶内圈细线 */
+.hero-inner::before {
+  content: ""; position: absolute; inset: 9px;
+  border: 1px solid rgba(201,169,98,.28);
+  border-radius: 150px 150px 6px 6px;
+  pointer-events: none;
 }
-td { padding: 11px 14px; border-bottom: 1px solid rgba(45,56,80,.55); vertical-align: top; }
-tr:last-child td { border-bottom: none; }
-tbody tr:hover td { background: rgba(232,181,74,.045); }
+.hero-crest { margin-bottom: 10px; filter: drop-shadow(0 4px 18px rgba(201,169,98,.35)); }
+.hero-overline {
+  font-family: var(--font-label); font-size: 11.5px; letter-spacing: .34em;
+  text-transform: uppercase; color: var(--brass); margin-bottom: 14px;
+}
+.hero h1 {
+  font-family: var(--font-heading); font-weight: 700;
+  font-size: clamp(34px, 6vw, 56px); line-height: 1.12;
+  letter-spacing: .01em; margin: 0 0 14px; color: var(--fg);
+  text-shadow: 0 2px 0 #000, 0 6px 34px rgba(0,0,0,.6);
+}
+.hero h1 em { font-style: normal; color: var(--brass); }
+.hero-sub {
+  max-width: 620px; margin: 0 auto 26px; color: var(--muted-fg);
+  font-size: 18px; font-style: italic;
+}
+.hero-cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px; }
+.hero-stats { display: flex; gap: 46px; justify-content: center; flex-wrap: wrap; }
+.hero-stats div { text-align: center; }
+.hero-stats b {
+  display: block; font-family: var(--font-heading); font-size: 30px;
+  color: var(--brass-hi); line-height: 1.1; text-shadow: 0 0 16px rgba(201,169,98,.3);
+}
+.hero-stats span { font-family: var(--font-label); font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted-fg); }
 
-/* ---------- 兑换码：金装物品 ---------- */
+/* 火漆印章 */
+.wax-seal {
+  position: absolute; top: 26px; right: 34px;
+  width: 64px; height: 64px; border-radius: 50%;
+  background: radial-gradient(circle at 34% 30%, #a63a49, var(--crimson) 58%, #5d1622);
+  border: 2px solid rgba(232,207,150,.4);
+  box-shadow: 0 6px 18px rgba(0,0,0,.55), 0 0 0 4px rgba(139,38,53,.25);
+  font-family: var(--font-label); font-weight: 700; font-size: 12px;
+  letter-spacing: .12em; color: #f0dcc0;
+  display: flex; align-items: center; justify-content: center;
+  transform: rotate(9deg);
+}
+
+/* ─────────── 按钮 ─────────── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer;
+  font-family: var(--font-label); font-size: 13px; font-weight: 700; line-height: 1;
+  letter-spacing: .14em; text-transform: uppercase;
+  padding: 14px 26px; border-radius: 4px;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.btn-brass {
+  color: #241a08;
+  background: linear-gradient(180deg, var(--brass-hi), var(--brass) 55%, #a98b4b);
+  border: 1px solid #6f5828;
+  box-shadow: 0 1px 0 rgba(255,240,200,.5) inset, 0 6px 18px rgba(0,0,0,.45);
+  text-shadow: 0 1px 0 rgba(255,240,200,.45);
+}
+.btn-brass:hover { transform: translateY(-2px); box-shadow: 0 1px 0 rgba(255,240,200,.5) inset, 0 10px 26px rgba(0,0,0,.5), 0 0 24px rgba(201,169,98,.35); color: #241a08; }
+.btn-ghost {
+  color: var(--brass); background: transparent;
+  border: 1px solid var(--brass-deep);
+}
+.btn-ghost:hover { border-color: var(--brass); background: rgba(201,169,98,.08); transform: translateY(-2px); }
+
+/* ─────────── 版心 / 标题 ─────────── */
+main { max-width: 1040px; margin: 0 auto; padding: 26px 22px 80px; }
+.breadcrumb { font-family: var(--font-label); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted-fg); margin: 26px 0 14px; }
+
+/* 内页：拱形页眉横幅（不改动 HTML，直接把 h1 做成拱顶碑牌） */
+main > h1 {
+  font-family: var(--font-heading); font-weight: 700;
+  font-size: clamp(27px, 4.4vw, 40px); line-height: 1.2;
+  padding: 42px 34px 30px; margin: 0 0 14px;
+  text-align: center;
+  border: 1px solid var(--brass-deep);
+  border-radius: 110px 110px 8px 8px;
+  background:
+    radial-gradient(80% 60% at 50% 0%, rgba(201,169,98,.12), transparent 60%),
+    linear-gradient(180deg, #2d241d, #211a14);
+  box-shadow: 0 1px 0 rgba(232,207,150,.08) inset, 0 16px 40px rgba(0,0,0,.4);
+  position: relative;
+}
+main > h1::after {
+  content: ""; position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%);
+  width: 120px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+main > h1 + .meta-line { text-align: center; margin-bottom: 30px; }
+
+h2 {
+  font-family: var(--font-heading); font-weight: 700; font-size: 27px;
+  margin: 42px 0 12px; padding-top: 18px; border-top: 1px solid var(--border);
+  color: var(--brass-hi);
+  text-shadow: 0 1px 0 #000;
+}
+h2::before { content: "❧ "; color: var(--brass); font-size: 20px; }
+h3 { font-family: var(--font-label); font-size: 14px; font-weight: 700; letter-spacing: .08em; margin: 24px 0 8px; color: var(--brass); text-transform: uppercase; }
+p { margin-bottom: 14px; }
+ul, ol { margin: 0 0 16px 24px; }
+li { margin-bottom: 7px; }
+.meta-line { color: var(--muted-fg); font-size: 14.5px; margin-bottom: 24px; font-style: italic; }
+
+/* 首字下沉 */
+.card > p:first-of-type::first-letter,
+main > p:first-of-type::first-letter {
+  font-family: var(--font-heading); font-size: 3.1em; line-height: .82;
+  float: left; padding: 6px 10px 0 0; color: var(--brass);
+  text-shadow: 0 2px 8px rgba(0,0,0,.6);
+}
+
+/* ─────────── 古卷卡片 ─────────── */
+.card {
+  position: relative;
+  background: linear-gradient(180deg, var(--panel-2), var(--panel) 60%);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 26px 28px;
+  margin-bottom: 22px;
+  box-shadow: 0 1px 0 rgba(232,207,150,.06) inset, 0 12px 34px rgba(0,0,0,.35);
+}
+.card::before, .card::after {
+  content: ""; position: absolute; width: 16px; height: 16px;
+  border: 2px solid var(--brass-deep);
+}
+.card::before { top: -1px; left: -1px; border-right: none; border-bottom: none; border-radius: 6px 0 0 0; }
+.card::after  { bottom: -1px; right: -1px; border-left: none; border-top: none; border-radius: 0 0 6px 0; }
+.card h2:first-child, .card h3:first-child { margin-top: 0; border-top: none; padding-top: 0; }
+
+/* 章节纹饰标题（首页 Explore 用） */
+.section-orn {
+  text-align: center; border-top: none !important; padding-top: 8px !important;
+  display: flex; align-items: center; gap: 18px; margin-top: 48px;
+}
+.section-orn::before { content: ""; }
+.section-orn::after {
+  content: ""; order: 3; flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--brass-deep));
+}
+.section-orn { justify-content: center; }
+.section-orn-text { display: flex; align-items: center; gap: 18px; flex: 1; }
+.section-orn::before {
+  content: ""; flex: 1; height: 1px; order: 0;
+  background: linear-gradient(90deg, var(--brass-deep), transparent);
+}
+
+/* ─────────── 表格 ─────────── */
+table {
+  width: 100%; border-collapse: collapse; font-size: 16px;
+  margin: 14px 0 18px; border: 1px solid var(--border);
+  background: rgba(0,0,0,.16);
+}
+th {
+  font-family: var(--font-label); font-size: 11px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--brass); text-align: left;
+  padding: 12px 15px; background: linear-gradient(180deg, #342a21, #291f18);
+  border-bottom: 1px solid var(--brass-deep);
+}
+td { padding: 12px 15px; border-bottom: 1px solid rgba(74,63,53,.6); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+tbody tr:hover td, table tr:hover td { background: rgba(201,169,98,.05); }
+
+/* ─────────── 兑换码铜牌 ─────────── */
 .code {
   font-family: var(--font-mono); font-weight: 700; font-size: 13.5px;
-  color: var(--gold-hi); background: linear-gradient(180deg, #2a2413, #1d190d);
-  border: 1px solid var(--gold-deep);
-  padding: 3px 10px; border-radius: 4px; white-space: nowrap;
-  text-shadow: 0 0 8px rgba(255,217,126,.35);
-  box-shadow: 0 0 0 1px rgba(0,0,0,.5), 0 1px 0 rgba(255,217,126,.15) inset;
+  color: var(--brass-hi); white-space: nowrap;
+  background: linear-gradient(180deg, #3a2f1c, #241c0f);
+  border: 1px solid var(--brass-deep); border-radius: 3px; padding: 4px 11px;
+  text-shadow: 0 0 10px rgba(232,207,150,.35);
+  box-shadow: 0 1px 0 rgba(232,207,150,.14) inset, 0 2px 6px rgba(0,0,0,.5);
 }
-.status-active { color: var(--ok); font-weight: 700; font-size: 13px; letter-spacing: .04em; }
-.status-active::before { content: "●"; font-size: 9px; margin-right: 6px; text-shadow: 0 0 8px var(--ok); }
-.status-beta { color: var(--gold); font-weight: 700; font-size: 13px; letter-spacing: .04em; }
-.status-beta::before { content: "◐"; font-size: 11px; margin-right: 6px; }
+.status-active { color: var(--ok); font-family: var(--font-label); font-weight: 700; font-size: 12px; letter-spacing: .08em; }
+.status-active::before { content: "✦"; margin-right: 7px; font-size: 10px; }
+.status-beta { color: var(--brass); font-family: var(--font-label); font-weight: 700; font-size: 12px; letter-spacing: .08em; }
+.status-beta::before { content: "✧"; margin-right: 7px; font-size: 11px; }
 
-/* ---------- 任务面板 / 提示 ---------- */
+/* ─────────── 任务卷轴提示 ─────────── */
 .callout {
-  background: linear-gradient(180deg, #1a2233, #151c2b);
-  border: 1px solid var(--steel); border-left: 3px solid var(--gem);
-  padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 18px 0; font-size: 14.5px;
-  box-shadow: 0 6px 20px rgba(0,0,0,.3);
+  background: linear-gradient(180deg, #2e261d, #271f18);
+  border: 1px solid var(--border); border-left: 3px solid var(--gem);
+  padding: 18px 22px; border-radius: 0 6px 6px 0; margin: 20px 0; font-size: 16.5px;
+  box-shadow: 0 8px 22px rgba(0,0,0,.3);
 }
-.warn { border-left-color: var(--bad); background: linear-gradient(180deg, #2a1c20, #1e1518); }
+.warn { border-left-color: var(--bad); background: linear-gradient(180deg, #32231f, #291d19); }
+.disambig { border-left: 3px solid var(--crimson); padding-left: 16px; color: var(--muted-fg); font-style: italic; }
 
-/* ---------- 稀有度徽章 ---------- */
+/* ─────────── 稀有度徽章 ─────────── */
 .tier-s, .tier-a, .tier-b {
-  display: inline-block; font-family: var(--font-display); font-weight: 800;
-  font-size: 13px; padding: 1px 12px; border-radius: 3px; letter-spacing: .1em;
+  display: inline-block; font-family: var(--font-label); font-weight: 900;
+  font-size: 13px; padding: 2px 14px; border-radius: 2px; letter-spacing: .14em;
 }
-.tier-s { color: #1a1206; background: linear-gradient(180deg, var(--gold-hi), var(--gold)); box-shadow: 0 0 14px rgba(232,181,74,.45); }
-.tier-a { color: #0b1622; background: linear-gradient(180deg, #8ed0ff, var(--gem)); box-shadow: 0 0 12px rgba(88,183,255,.35); }
-.tier-b { color: var(--ink); background: linear-gradient(180deg, var(--steel-hi), var(--steel)); }
+.tier-s { color: #241a08; background: linear-gradient(180deg, var(--brass-hi), var(--brass)); box-shadow: 0 0 16px rgba(201,169,98,.4); }
+.tier-a { color: #0f1c22; background: linear-gradient(180deg, #a9d2e4, var(--gem)); }
+.tier-b { color: var(--fg); background: linear-gradient(180deg, var(--border), var(--muted)); }
 
-.tag {
-  display: inline-block; background: var(--panel-2); border: 1px solid var(--steel);
-  color: var(--ink-dim); border-radius: 20px; padding: 2px 12px; font-size: 12px;
-  margin: 0 6px 8px 0;
-}
+.tag { display: inline-block; background: var(--panel-2); border: 1px solid var(--border); color: var(--muted-fg); border-radius: 3px; padding: 2px 12px; font-size: 12.5px; margin: 0 6px 8px 0; font-family: var(--font-label); letter-spacing: .06em; }
 
-/* ---------- Hub 格子：物品槽 ---------- */
-.hub-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(272px, 1fr)); gap: 16px; margin-top: 10px; }
+/* ─────────── Hub 物品槽 ─────────── */
+.hub-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; margin-top: 12px; }
 .hub-card {
+  position: relative;
   background: linear-gradient(180deg, var(--panel-2), var(--panel));
-  border: 1px solid var(--steel); border-radius: 8px; padding: 20px 20px 18px;
-  transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease;
+  border: 1px solid var(--border); border-radius: 5px;
+  padding: 22px 22px 19px;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.hub-card::before {
+  content: "❧"; position: absolute; top: 14px; right: 16px;
+  color: var(--brass-deep); font-size: 15px; opacity: .8;
 }
 .hub-card:hover {
   transform: translateY(-3px);
-  border-color: var(--gold-deep);
-  box-shadow: 0 0 0 1px rgba(232,181,74,.25), 0 14px 30px rgba(0,0,0,.5);
-  text-decoration: none;
+  border-color: var(--brass-deep);
+  box-shadow: 0 0 0 1px rgba(201,169,98,.2), 0 16px 36px rgba(0,0,0,.5);
 }
-.hub-card h3 { margin: 0 0 6px; color: var(--ink); font-size: 15.5px; font-family: var(--font-display); letter-spacing: .03em; }
-.hub-card p { font-size: 13.5px; color: var(--ink-dim); margin: 0; line-height: 1.6; }
+.hub-card h3 { margin: 0 0 7px; color: var(--brass-hi); font-size: 15px; }
+.hub-card p { font-size: 15px; color: var(--muted-fg); margin: 0; line-height: 1.65; }
 
-/* ---------- 页脚 ---------- */
-.site-footer { border-top: 1px solid var(--steel); background: linear-gradient(180deg, #0c101a, #090b10); margin-top: 48px; }
-.footer-inner { max-width: 1000px; margin: 0 auto; padding: 30px 20px; font-size: 13px; color: var(--ink-dim); }
-.footer-inner nav { margin-bottom: 12px; display: flex; gap: 16px; flex-wrap: wrap; }
-.footer-inner a { color: var(--ink-dim); }
-.footer-inner a:hover { color: var(--gold); }
+/* ─────────── 页脚 ─────────── */
+.site-footer { border-top: 1px solid var(--border); background: linear-gradient(180deg, #191310, #120e0b); margin-top: 56px; }
+.footer-inner { max-width: 1040px; margin: 0 auto; padding: 32px 22px; font-size: 14px; color: var(--muted-fg); }
+.footer-inner nav { margin-bottom: 12px; display: flex; gap: 18px; flex-wrap: wrap; font-family: var(--font-label); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
+.footer-inner a { color: var(--muted-fg); }
+.footer-inner a:hover { color: var(--brass); }
 
-/* ---------- 响应式 ---------- */
-@media (max-width: 700px) {
-  h1 { font-size: 25px; }
-  .header-inner { gap: 10px; }
-  .card { padding: 18px; }
-  table { display: block; overflow-x: auto; white-space: nowrap; }
-  td, th { padding: 9px 12px; }
+/* ─────────── 动效与无障碍 ─────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  html { scroll-behavior: auto; }
+}
+
+/* ─────────── 响应式 ─────────── */
+@media (max-width: 760px) {
+  body { font-size: 16.5px; }
+  .hero { margin-top: 22px; }
+  .hero-inner { padding: 46px 20px 40px; border-radius: 90px 90px 8px 8px; }
+  .wax-seal { width: 50px; height: 50px; top: 18px; right: 16px; font-size: 10px; }
+  .hero-stats { gap: 26px; }
+  .card { padding: 20px 18px; }
+  main > h1 { padding: 32px 18px 24px; border-radius: 70px 70px 8px 8px; }
+  table { display: block; overflow-x: auto; }
+  .header-inner { gap: 12px; }
+  .card > p:first-of-type::first-letter, main > p:first-of-type::first-letter { font-size: 2.6em; }
 }
