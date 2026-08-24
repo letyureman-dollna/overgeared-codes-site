@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://overgeared-site.vercel.app/sitemap.xml

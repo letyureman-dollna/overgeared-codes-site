@@ -1,0 +1,75 @@
+/* Overgeared Codes Hub — Roblox fan guide site */
+:root {
+  --bg: #0f1115;
+  --bg-card: #171a21;
+  --bg-card-2: #1e222c;
+  --border: #2a2f3c;
+  --text: #e8eaf0;
+  --text-dim: #9aa3b5;
+  --accent: #f5b942;
+  --accent-2: #6ea8fe;
+  --ok: #4ade80;
+  --bad: #f87171;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg); color: var(--text); line-height: 1.7;
+}
+a { color: var(--accent-2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* header */
+.site-header { background: var(--bg-card); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10; }
+.header-inner { max-width: 980px; margin: 0 auto; padding: 14px 20px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.brand { font-weight: 800; font-size: 18px; color: var(--accent); letter-spacing: .3px; }
+.brand span { color: var(--text); }
+.nav { display: flex; gap: 18px; flex-wrap: wrap; font-size: 14px; }
+.nav a { color: var(--text-dim); }
+.nav a:hover { color: var(--text); }
+
+/* layout */
+main { max-width: 980px; margin: 0 auto; padding: 32px 20px 64px; }
+.breadcrumb { font-size: 13px; color: var(--text-dim); margin-bottom: 18px; }
+h1 { font-size: 34px; line-height: 1.25; margin-bottom: 12px; }
+h2 { font-size: 24px; margin: 36px 0 12px; padding-top: 12px; border-top: 1px solid var(--border); }
+h3 { font-size: 18px; margin: 22px 0 8px; color: var(--accent-2); }
+p { margin-bottom: 14px; color: var(--text); }
+ul, ol { margin: 0 0 16px 22px; }
+li { margin-bottom: 6px; }
+.meta-line { color: var(--text-dim); font-size: 14px; margin-bottom: 24px; }
+
+/* cards & tables */
+.card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 22px; margin-bottom: 18px; }
+.card h2:first-child, .card h3:first-child { margin-top: 0; border-top: none; padding-top: 0; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; margin: 10px 0 18px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { color: var(--text-dim); font-size: 13px; text-transform: uppercase; letter-spacing: .5px; }
+.code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--bg-card-2); border: 1px dashed var(--accent); color: var(--accent); padding: 3px 10px; border-radius: 6px; font-weight: 700; }
+.status-active { color: var(--ok); font-weight: 700; }
+.status-beta { color: var(--accent); font-weight: 700; }
+.callout { background: #1a2030; border-left: 4px solid var(--accent-2); padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 15px; }
+.warn { border-left-color: var(--bad); background: #241a1e; }
+.tier-s { color: #f5b942; font-weight: 800; }
+.tier-a { color: #6ea8fe; font-weight: 800; }
+.tier-b { color: #9aa3b5; font-weight: 800; }
+.tag { display: inline-block; background: var(--bg-card-2); border: 1px solid var(--border); color: var(--text-dim); border-radius: 20px; padding: 2px 12px; font-size: 12.5px; margin: 0 6px 8px 0; }
+
+/* hub grid */
+.hub-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 16px; margin-top: 8px; }
+.hub-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; transition: border-color .15s; }
+.hub-card:hover { border-color: var(--accent); }
+.hub-card h3 { margin: 0 0 6px; color: var(--text); font-size: 16px; }
+.hub-card p { font-size: 14px; color: var(--text-dim); margin: 0; }
+
+/* footer */
+.site-footer { border-top: 1px solid var(--border); background: var(--bg-card); margin-top: 40px; }
+.footer-inner { max-width: 980px; margin: 0 auto; padding: 28px 20px; font-size: 13.5px; color: var(--text-dim); }
+.footer-inner a { color: var(--text-dim); }
+.footer-inner nav { margin-bottom: 10px; display: flex; gap: 16px; flex-wrap: wrap; }
+
+@media (max-width: 640px) {
+  h1 { font-size: 26px; }
+  .header-inner { gap: 12px; }
+}
