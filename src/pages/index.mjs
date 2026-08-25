@@ -9,12 +9,12 @@ export default {
   updated: '2026-08-24',
   navLabel: 'Codes',
   card: { title: '{{game}} Codes', blurb: 'All 10 working codes + reward list.' },
-  hub: { heading: 'Explore the Codex', style: 'orn' },
+  hub: { heading: 'Explore Our Guides', style: 'orn' },
   inSitemap: true,
   sitemapPriority: 1.0,
 
   hero: {
-    overline: "The Adventurer's Codex · {{platform}}",
+    overline: "The Adventurer's Guide · {{platform}}",
     h1: '{{game}} Codes',
     h1Em: 'for {{platform}}',
     sub: 'Every working code for the island-hopping action RPG — Gold, Gems, Ember Stones &amp; Xeros Tears. Verified after the UPDATE3 patch.',
